@@ -2,8 +2,11 @@ import Link from 'next/link';
 import logo from '@/assets/logo.png';
 import Image from 'next/image';
 import MainHeaderBG from './MainHeaderBG';
+import NavLink from './Nav-Link';
 
-export default function Header() {
+
+export default function Header(): React.ReactNode {
+
   return (
     <>
       <MainHeaderBG />
@@ -27,20 +30,14 @@ export default function Header() {
         <nav>
           <ul className='flex gap-6 list-none m-0 p-0 text-4xl font-sans font-bold'>
             <li>
-              <Link
-                href="/meals"
-                className='text-[#ddd6cb] px-4 py-2 rounded-lg no-underline hover:bg-gradient-to-r hover:from-[#ff8a05] hover:to-[#f9b331] hover:bg-clip-text hover:text-transparent hover:[text-shadow:0_0_18px_rgba(248,190,42,0.8)]'
-              >
+              <NavLink href='/meals'>
                 Buscar Refeições
-              </Link>
+              </NavLink>
             </li>
             <li>
-              <Link
-                href="/community"
-                className='text-[#ddd6cb] px-4 py-2 rounded-lg no-underline hover:bg-gradient-to-r hover:from-[#ff8a05] hover:to-[#f9b331] hover:bg-clip-text hover:text-transparent hover:[text-shadow:0_0_18px_rgba(248,190,42,0.8)]'
-              >
+              <NavLink href='/community'>
                 Comunidade
-              </Link>
+              </NavLink>
             </li>
           </ul>
         </nav>

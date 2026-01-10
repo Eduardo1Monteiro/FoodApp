@@ -11,6 +11,26 @@
   --font-sans: var(--font-montserrat), ui-sans-serif, system-ui, sans-serif;
 }
 
+@layer utilities {
+  @keyframes loading-color {
+    0% {
+      color: #e9e9e9;
+    }
+
+    50% {
+      color: #b89b84;
+    }
+
+    100% {
+      color: #e9e9e9;
+    }
+  }
+
+  .animate-loading {
+    animation: loading-color 1.2s ease-in-out infinite;
+  }
+}
+
 @media (prefers-color-scheme: dark) {
   :root {
     --background: #0a0a0a;

@@ -1,0 +1,19 @@
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL") 
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model Meal {
+  id            String @id @default(cuid())
+  slug          String @unique
+  title         String
+  image         String
+  summary       String
+  instructions  String
+  creator       String
+  creator_email String
+}

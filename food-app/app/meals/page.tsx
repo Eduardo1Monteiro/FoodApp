@@ -1,5 +1,13 @@
 import MealsGrid from '@/components/Meals/MealsGrid';
 import Link from 'next/link';
+import { getMeals } from '@/lib/meals';
+import { Suspense } from 'react';
+
+async function Meals(): Promise<React.ReactNode> {
+  const meals = await getMeals();
+
+  return <MealsGrid meals={meals} />
+}
 
 export default function MealsPage(): React.ReactNode {
   return (
@@ -35,7 +43,9 @@ export default function MealsPage(): React.ReactNode {
       </header>
 
       <main className='animate-loading'>
-        <MealsGrid meals={[]} />
+        <Suspense fallback={<p className="loading-animation text-center animate-pulse text-sans">Buscando refeições...</p>}>
+          <Meals />
+        </Suspense>
       </main>
     </>
   );

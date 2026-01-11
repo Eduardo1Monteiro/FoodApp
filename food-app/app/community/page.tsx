@@ -13,25 +13,25 @@ export default function CommunityPage(): React.ReactNode {
     <>
       <header className="flex flex-col gap-12 mt-12 mb-20 mx-auto w-[90%] max-w-[75rem] text-center text-5xl text-[#ddd6cb]">
         <h1 className="font-sans font-bold">
-          One shared passion: <span className="bg-gradient-to-r from-[#f9572a] to-[#ff8a05] bg-clip-text text-transparent">Food</span>
+          Uma paixão em comum: <span className="bg-gradient-to-r from-[#f9572a] to-[#ff8a05] bg-clip-text text-transparent">Comida</span>
         </h1>
-        <p>Join our community and share your favorite recipes!</p>
+        <p>Participe de nossa comunidade e compartilhe sua receita favorita!</p>
       </header>
 
       <main className="w-[90%] max-w-[40rem] mx-auto text-center">
         <h2 className="font-sans font-bold text-[3rem] mb-12 text-[#ddd6cb]">
-          Community Perks
+          Vantagens da Comunidade
         </h2>
 
         <ul className="list-none my-12 space-y-12 p-0">
           <li className={liStyle}>
             <Image className={imageStyle} src={mealIcon} alt="A delicious meal" />
-            <p className={pStyle}>Share & discover recipes</p>
+            <p className={pStyle}>Compartilhe e Descubra Receitas</p>
           </li>
 
           <li className={liStyle}>
             <Image className={imageStyle} src={communityIcon} alt="A crowd of people, cooking" />
-            <p className={pStyle}>Find new friends & like-minded people</p>
+            <p className={pStyle}>Encontre novos amigos e pessoas parecidas contigo</p>
           </li>
 
           <li className={liStyle}>
@@ -40,7 +40,7 @@ export default function CommunityPage(): React.ReactNode {
               src={eventsIcon}
               alt="A crowd of people at a cooking event"
             />
-            <p className={pStyle}>Participate in exclusive events</p>
+            <p className={pStyle}>Participe de Eventos Exclusivos</p>
           </li>
         </ul>
       </main>

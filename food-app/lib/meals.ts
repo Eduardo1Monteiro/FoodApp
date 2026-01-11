@@ -2,6 +2,7 @@ import prisma from './prisma';
 import slugify from 'slugify';
 import xss from 'xss';
 import fs from 'node:fs';
+import path from 'node:path';
 
 interface MealInput {
   title: string;
@@ -43,20 +44,21 @@ export async function getMeal(slug: string) {
 
 export async function saveMeal(meal: MealInput) {
   const slug = slugify(meal.title, { lower: true });
-
   const instructions = xss(meal.instructions);
 
   const extension = meal.image.name.split('.').pop();
   const fileName = `${slug}.${extension}`;
 
-  const stream = fs.createWriteStream(`/public/images/${fileName}`);
+  const publicFolderPath = path.join(process.cwd(), 'public', 'images');
+  const filePath = path.join(publicFolderPath, fileName);
+
+  if (!fs.existsSync(publicFolderPath)) {
+    fs.mkdirSync(publicFolderPath, { recursive: true });
+  }
+
   const bufferedImage = await meal.image.arrayBuffer();
 
-  stream.write(Buffer.from(bufferedImage), (error) => {
-    if (error) {
-      throw new Error('Saving image failed!');
-    }
-  });
+  await fs.promises.writeFile(filePath, Buffer.from(bufferedImage));
 
   const imagePath = `/images/${fileName}`;
 

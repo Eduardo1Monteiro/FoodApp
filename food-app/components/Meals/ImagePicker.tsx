@@ -37,7 +37,7 @@ export default function ImagePicker({ name }: ImagePickerProps) {
       <div className="flex items-start gap-6 mb-4">
 
         <div className="relative w-40 h-40 border-2 border-[#a4abb9] flex justify-center items-center text-center text-[#a4abb9]">
-          {!pickedImage && <p className="m-0 p-4">No image picked yet.</p>}
+          {!pickedImage && <p className="m-0 p-4">Nenhuma imagem escolhida.</p>}
           {pickedImage && (
             <Image
               src={pickedImage}
@@ -69,7 +69,7 @@ export default function ImagePicker({ name }: ImagePickerProps) {
           onClick={handleClick}
           type="button"
         >
-          Pick an Image
+          Escolha uma Imagem
         </button>
       </div>
     </div>

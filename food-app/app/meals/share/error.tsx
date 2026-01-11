@@ -1,0 +1,10 @@
+'use client';
+
+export default function ErrorPage(): React.ReactNode {
+  return (
+    <main className="my-16 flex flex-col items-center text-sans gap-12">
+      <h1 className="text-6xl uppercase font-bold text-center bg-gradient-to-r from-[#f9572a] to-[#ff8a05] bg-clip-text text-transparent">Um problema ocorreu!</h1>
+      <p className="text-center text-2xl">O Input inserido é inválido. Por favor, preencha corretamente os campos do formulário.</p>
+    </main>
+  );
+}

@@ -1,28 +1,34 @@
+'use client';
+
 import ImagePicker from "@/components/Meals/ImagePicker";
+import MealsFormSubmit from "@/components/Meals/MealsFormSubmit";
 import shareMeal from "@/lib/actions";
+import { useFormState } from "react-dom";
 
 export default function ShareMealPage() {
+  const [state, formAction] = useFormState(shareMeal, null);
+
   return (
     <>
       <header className="flex flex-col gap-12 mt-12 mb-20 mx-auto w-[90%] max-w-[75rem] text-[#ddd6cb] text-2xl">
         <h1 className="font-sans font-bold text-5xl">
-          Share your{' '}
+          Compartilhe sua{' '}
           <span className="bg-gradient-to-r from-[#f9572a] to-[#ff8a05] bg-clip-text text-transparent">
-            favorite meal
+            receita favorita
           </span>
         </h1>
-        <p>Or any other meal you feel needs sharing!</p>
+        <p>Ou qualquer comida que desejar!</p>
       </header>
 
       <main className="w-[90%] max-w-[75rem] my-12 mx-auto text-white">
-        <form className="max-w-[50rem]" action={shareMeal}>
+        <form className="max-w-[50rem]" action={formAction}>
           <div className="flex gap-4">
             <p className="w-full">
               <label
                 htmlFor="name"
                 className="block mb-2 text-base font-sans uppercase text-[#b3aea5] font-bold"
               >
-                Your name
+                Seu nome
               </label>
               <input
                 type="text"
@@ -37,7 +43,7 @@ export default function ShareMealPage() {
                 htmlFor="email"
                 className="block mb-2 text-base font-sans uppercase text-[#b3aea5] font-bold"
               >
-                Your email
+                Seu email
               </label>
               <input
                 type="email"
@@ -54,7 +60,7 @@ export default function ShareMealPage() {
               htmlFor="title"
               className="block mb-2 text-base font-sans uppercase text-[#b3aea5] font-bold"
             >
-              Title
+              Título
             </label>
             <input
               type="text"
@@ -70,7 +76,7 @@ export default function ShareMealPage() {
               htmlFor="summary"
               className="block mb-2 text-base font-sans uppercase text-[#b3aea5] font-bold"
             >
-              Short Summary
+              Descrição
             </label>
             <input
               type="text"
@@ -86,7 +92,7 @@ export default function ShareMealPage() {
               htmlFor="instructions"
               className="block mb-2 text-base font-sans uppercase text-[#b3aea5] font-bold"
             >
-              Instructions
+              Instruções
             </label>
             <textarea
               id="instructions"
@@ -101,19 +107,9 @@ export default function ShareMealPage() {
             <ImagePicker name="image" />
           </div>
 
+          {state?.message && <p>{state?.message}</p>}
           <p className="text-right">
-            <button
-              type="submit"
-              className="
-                px-8 py-3 border-0 rounded-sm shadow-md cursor-pointer text-xl text-white font-inherit
-                bg-gradient-to-r from-[#f9572a] to-[#ff9b05]
-                hover:from-[#fd4715] hover:to-[#f9b241]
-                focus:from-[#fd4715] focus:to-[#f9b241]
-                disabled:bg-[#ccc] disabled:text-[#979797] disabled:cursor-not-allowed
-              "
-            >
-              Share Meal
-            </button>
+            <MealsFormSubmit />
           </p>
         </form>
       </main>

@@ -15,14 +15,14 @@ export default function MealsPage(): React.ReactNode {
       <header className="flex flex-col gap-12 mt-12 mb-20 mx-auto w-[90%] max-w-[75rem] text-[#ddd6cb] text-2xl">
 
         <h1 className="font-sans font-bold text-5xl uppercase tracking-widest leading-tight">
-          Delicious meals, created{' '}
+          Refeições Maravilhosas, criadas{' '}
           <span className="bg-gradient-to-r from-[#f9572a] to-[#ff8a05] bg-clip-text text-transparent">
-            by you
+            por você
           </span>
         </h1>
 
         <p className="m-0">
-          Choose your favorite recipe and cook it yourself. It is easy and fun!
+          Escolha sua receita favorita e cozinhe você mesmo. É fácil e divertido!
         </p>
 
         <p className="m-0">
@@ -37,7 +37,7 @@ export default function MealsPage(): React.ReactNode {
               transition-all duration-300
             "
           >
-            Share Your Favorite Recipe
+            Compartilhe Sua Receita Favorita
           </Link>
         </p>
       </header>

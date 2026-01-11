@@ -33,7 +33,7 @@ export default function MealItem({ title, slug, image, summary, creator }: MealI
             {title}
           </h2>
           <p className="text-xs text-[#cfa69b] italic">
-            by {creator}
+            por {creator}
           </p>
         </div>
       </header>
@@ -54,7 +54,7 @@ export default function MealItem({ title, slug, image, summary, creator }: MealI
               transition-all
             "
           >
-            View Details
+            Ver Detalhes
           </Link>
         </div>
       </div>

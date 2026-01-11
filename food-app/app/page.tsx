@@ -15,10 +15,10 @@ export default function Home() {
         <div className="flex-1">
           <div className="text-[#ddd6cb] text-2xl">
             <h1 className="text-[2rem] font-bold font-sans tracking-[0.15rem] uppercase bg-gradient-to-r from-[#f9572a] to-[#ffc905] bg-clip-text text-transparent mb-4">
-              NextLevel Food for NextLevel Foodies
+              Comida do Mais Alto Nível para Consumidores do Mais Alto Nível
             </h1>
 
-            <p>Taste & share food from all over the world.</p>
+            <p>Saboreie e compartilhe comida com todo o mundo.</p>
           </div>
           <div className="text-2xl flex gap-4 mt-4">
 
@@ -26,14 +26,14 @@ export default function Home() {
               href="/community"
               className="inline-block mt-4 py-2 pl-0 text-[#ff9b05] font-normal hover:text-[#f9b241] transition-colors"
             >
-              Join the Community
+              Entre na Comunidade
             </Link>
 
             <Link
               href="/meals"
               className="inline-block mt-4 px-4 py-2 rounded-lg font-bold text-white bg-gradient-to-r from-[#f9572a] to-[#ff9b05] hover:from-[#fd4715] hover:to-[#f9b241] transition-all"
             >
-              Explore Meals
+              Explorar Receitas
             </Link>
 
           </div>
@@ -42,28 +42,26 @@ export default function Home() {
 
       <main>
         <section className="flex flex-col text-[#ddd6cb] text-2xl max-w-[50rem] w-[90%] mx-auto my-8 text-center">
-          <h2 className="text-3xl font-bold mb-4">How it works</h2>
+          <h2 className="text-3xl font-bold mb-4">Como Funciona</h2>
           <p className="mb-4">
-            NextLevel Food is a platform for foodies to share their favorite
-            recipes with the world. It&apos;s a place to discover new dishes, and to
-            connect with other food lovers.
+            Foodies é uma plataforma para aqueles que desejam compartilhar sua receita favorita com o mundo.
+            É um lugar para descobrir novos pratos e para conectar-se com outros amantes de comida
           </p>
           <p>
-            NextLevel Food is a place to discover new dishes, and to connect
-            with other food lovers.
+            Foodies é um lugar para descobrir novos pratos
+            e conectar-se com outros amantes de comida.
           </p>
         </section>
 
         <section className="flex flex-col text-[#ddd6cb] text-2xl max-w-[50rem] w-[90%] mx-auto my-8 text-center">
-          <h2 className="text-3xl font-bold mb-4">Why NextLevel Food?</h2>
+          <h2 className="text-3xl font-bold mb-4">Por Que a Foodies?</h2>
           <p className="mb-4">
-            NextLevel Food is a platform for foodies to share their favorite
-            recipes with the world. It&apos;s a place to discover new dishes, and to
-            connect with other food lovers.
+            Foodies é uma plataforma para aqueles que desejam compartilhar sua receita favorita com o mundo.
+            É um lugar para descobrir novos pratos e para conectar-se com outros amantes de comida
           </p>
           <p>
-            NextLevel Food is a place to discover new dishes, and to connect
-            with other food lovers.
+            Foodies é um lugar para descobrir novos pratos
+            e conectar-se com outros amantes de comida.
           </p>
         </section>
       </main>

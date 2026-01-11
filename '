@@ -1,0 +1,44 @@
+import prisma from './prisma';
+import slugify from 'slugify';
+import xss from 'xss';
+
+interface mealProps {
+  title: string,
+  creator: string,
+  summary: string,
+  image: any,
+  creator_email: string,
+  instructions: any
+}
+
+export async function getMeals() {
+  try {
+    return await prisma.meal.findMany();
+  } catch (error) {
+    console.error('Erro ao buscar refeições:', error);
+    throw new Error('A busca falhou');
+  }
+}
+
+export async function getMeal(slug: string) {
+  try {
+    const meal = await prisma.meal.findUnique({
+      where: {
+        slug: slug,
+      },
+    });
+
+    if (!meal) {
+      return null;
+    }
+
+    return meal;
+  } catch (error) {
+    console.error('Erro ao buscar refeição:', error);
+    throw new Error('Falha ao buscar a refeição');
+  }
+}
+
+export function saveMeal(meal: mealProps) {
+  const slug = slugify(meal.title);
+}

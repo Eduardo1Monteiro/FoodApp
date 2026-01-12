@@ -1,5 +1,7 @@
 # 🥘 Foodies
 
+![Project Preview](./food-app/public/images/cover.jpeg)
+
 O **Foodies** é uma aplicação web de compartilhamento de receitas desenvolvida como projeto de estudo para explorar as capacidades modernas do **Next.js**. O objetivo foi construir uma plataforma completa, desde o frontend responsivo até a persistência de dados no backend.
 
 ## 🎯 Funcionalidades do Projeto

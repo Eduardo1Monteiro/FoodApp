@@ -31,4 +31,6 @@ O **Foodies** é uma aplicação web de compartilhamento de receitas desenvolvid
 
 ---
 
+https://food-app-brown-three.vercel.app/
+
 *Este é um projeto de fins educacionais desenvolvido para prática de desenvolvimento Full Stack.*

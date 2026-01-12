@@ -1,8 +1,10 @@
 import prisma from './prisma';
 import slugify from 'slugify';
 import xss from 'xss';
-import fs from 'node:fs';
-import path from 'node:path';
+import { v2 as cloudinary } from 'cloudinary';
+import dns from 'node:dns';
+
+dns.setDefaultResultOrder('ipv4first');
 
 interface MealInput {
   title: string;
@@ -12,6 +14,12 @@ interface MealInput {
   creator: string;
   creator_email: string;
 }
+
+cloudinary.config({
+  cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
+  api_key: process.env.CLOUDINARY_API_KEY,
+  api_secret: process.env.CLOUDINARY_API_SECRET,
+});
 
 export async function getMeals() {
   try {
@@ -46,21 +54,21 @@ export async function saveMeal(meal: MealInput) {
   const slug = slugify(meal.title, { lower: true });
   const instructions = xss(meal.instructions);
 
-  const extension = meal.image.name.split('.').pop();
-  const fileName = `${slug}.${extension}`;
+  const arrayBuffer = await meal.image.arrayBuffer();
+  const buffer = Buffer.from(arrayBuffer);
 
-  const publicFolderPath = path.join(process.cwd(), 'public', 'images');
-  const filePath = path.join(publicFolderPath, fileName);
+  const mime = meal.image.type || 'image/png';
+  const encoding = 'base64';
+  const base64Data = buffer.toString(encoding);
+  const fileUri = 'data:' + mime + ';' + encoding + ',' + base64Data;
 
-  if (!fs.existsSync(publicFolderPath)) {
-    fs.mkdirSync(publicFolderPath, { recursive: true });
-  }
+  const result = await cloudinary.uploader.upload(fileUri, {
+    folder: 'meals',
+    invalidate: true,
+    timeout: 120000,
+  });
 
-  const bufferedImage = await meal.image.arrayBuffer();
-
-  await fs.promises.writeFile(filePath, Buffer.from(bufferedImage));
-
-  const imagePath = `/images/${fileName}`;
+  const imagePath = result.secure_url;
 
   await prisma.meal.create({
     data: {

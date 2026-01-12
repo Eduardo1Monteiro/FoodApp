@@ -3,10 +3,12 @@
 import ImagePicker from "@/components/Meals/ImagePicker";
 import MealsFormSubmit from "@/components/Meals/MealsFormSubmit";
 import shareMeal from "@/lib/actions";
-import { useFormState } from "react-dom";
+import { useActionState } from "react";
+
+export const maxDuration = 60;
 
 export default function ShareMealPage() {
-  const [state, formAction] = useFormState(shareMeal, null);
+  const [state, formAction] = useActionState(shareMeal, null);
 
   return (
     <>

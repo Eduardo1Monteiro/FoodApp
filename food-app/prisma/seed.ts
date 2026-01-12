@@ -1,120 +1,123 @@
 import { PrismaClient } from '@prisma/client';
+import dns from 'node:dns';
+
+dns.setDefaultResultOrder('ipv4first');
 
 const prisma = new PrismaClient();
 
 const dummyMeals = [
   {
-    title: 'Juicy Cheese Burger',
-    slug: 'juicy-cheese-burger',
+    title: 'Hambúrguer de Queijo Suculento',
+    slug: 'hamburguer-de-queijo-suculento',
     image: '/images/burger.jpg',
     summary:
-      'A mouth-watering burger with a juicy beef patty and melted cheese, served in a soft bun.',
+      'Um hambúrguer de dar água na boca com um suculento bife de carne e queijo derretido, servido em um pão macio.',
     instructions: `
-      1. Prepare the patty:
-         Mix 200g of ground beef with salt and pepper. Form into a patty.
+      1. Prepare a carne:
+         Misture 200g de carne moída com sal e pimenta. Modele no formato de hambúrguer.
 
-      2. Cook the patty:
-         Heat a pan with a bit of oil. Cook the patty for 2-3 minutes each side, until browned.
+      2. Cozinhe a carne:
+         Aqueça uma frigideira com um pouco de óleo. Cozinhe o hambúrguer por 2-3 minutos de cada lado, até dourar.
 
-      3. Assemble the burger:
-         Toast the burger bun halves. Place lettuce and tomato on the bottom half. Add the cooked patty and top with a slice of cheese.
+      3. Monte o hambúrguer:
+         Toste as metades do pão. Coloque alface e tomate na base. Adicione a carne cozida e cubra com uma fatia de queijo.
 
-      4. Serve:
-         Complete the assembly with the top bun and serve hot.
+      4. Sirva:
+         Complete a montagem com a parte de cima do pão e sirva quente.
     `,
     creator: 'John Doe',
     creator_email: 'johndoe@example.com',
   },
   {
-    title: 'Spicy Curry',
-    slug: 'spicy-curry',
+    title: 'Curry Picante',
+    slug: 'curry-picante',
     image: '/images/curry.jpg',
     summary:
-      'A rich and spicy curry, infused with exotic spices and creamy coconut milk.',
+      'Um curry rico e picante, infundido com especiarias exóticas e leite de coco cremoso.',
     instructions: `
-      1. Chop vegetables:
-         Cut your choice of vegetables into bite-sized pieces.
+      1. Pique os vegetais:
+         Corte os vegetais de sua escolha em pedaços pequenos.
 
-      2. Sauté vegetables:
-         In a pan with oil, sauté the vegetables until they start to soften.
+      2. Refogue os vegetais:
+         Em uma panela com óleo, refogue os vegetais até começarem a amolecer.
 
-      3. Add curry paste:
-         Stir in 2 tablespoons of curry paste and cook for another minute.
+      3. Adicione a pasta de curry:
+         Misture 2 colheres de sopa de pasta de curry e cozinhe por mais um minuto.
 
-      4. Simmer with coconut milk:
-         Pour in 500ml of coconut milk and bring to a simmer. Let it cook for about 15 minutes.
+      4. Cozinhe com leite de coco:
+         Despeje 500ml de leite de coco e leve à fervura. Deixe cozinhar por cerca de 15 minutos.
 
-      5. Serve:
-         Enjoy this creamy curry with rice or bread.
+      5. Sirva:
+         Aproveite este curry cremoso com arroz ou pão.
     `,
     creator: 'Max Schwarz',
     creator_email: 'max@example.com',
   },
   {
-    title: 'Homemade Dumplings',
-    slug: 'homemade-dumplings',
+    title: 'Dumplings Caseiros',
+    slug: 'dumplings-caseiros',
     image: '/images/dumplings.jpg',
     summary:
-      'Tender dumplings filled with savory meat and vegetables, steamed to perfection.',
+      'Dumplings macios recheados com carne saborosa e vegetais, cozidos no vapor com perfeição.',
     instructions: `
-      1. Prepare the filling:
-         Mix minced meat, shredded vegetables, and spices.
+      1. Prepare o recheio:
+         Misture carne moída, vegetais picados e especiarias.
 
-      2. Fill the dumplings:
-         Place a spoonful of filling in the center of each dumpling wrapper. Wet the edges and fold to seal.
+      2. Recheie os dumplings:
+         Coloque uma colher de recheio no centro de cada massa de dumpling. Molhe as bordas e dobre para selar.
 
-      3. Steam the dumplings:
-         Arrange dumplings in a steamer. Steam for about 10 minutes.
+      3. Cozinhe no vapor:
+         Organize os dumplings em uma vaporeira. Cozinhe por cerca de 10 minutos.
 
-      4. Serve:
-         Enjoy these dumplings hot, with a dipping sauce of your choice.
+      4. Sirva:
+         Aproveite estes dumplings quentes, com um molho de sua escolha.
     `,
     creator: 'Emily Chen',
     creator_email: 'emilychen@example.com',
   },
   {
-    title: 'Classic Mac n Cheese',
-    slug: 'classic-mac-n-cheese',
+    title: 'Macarrão com Queijo Clássico',
+    slug: 'macarrao-com-queijo-classico',
     image: '/images/macncheese.jpg',
     summary:
-      "Creamy and cheesy macaroni, a comforting classic that's always a crowd-pleaser.",
+      "Macarrão cremoso com queijo, um clássico reconfortante que sempre agrada a todos.",
     instructions: `
-      1. Cook the macaroni:
-         Boil macaroni according to package instructions until al dente.
+      1. Cozinhe o macarrão:
+         Ferva o macarrão de acordo com as instruções da embalagem até ficar al dente.
 
-      2. Prepare cheese sauce:
-         In a saucepan, melt butter, add flour, and gradually whisk in milk until thickened. Stir in grated cheese until melted.
+      2. Prepare o molho de queijo:
+         Em uma panela, derreta a manteiga, adicione farinha e misture gradualmente o leite até engrossar. Misture o queijo ralado até derreter.
 
-      3. Combine:
-         Mix the cheese sauce with the drained macaroni.
+      3. Misture:
+         Misture o molho de queijo com o macarrão escorrido.
 
-      4. Bake:
-         Transfer to a baking dish, top with breadcrumbs, and bake until golden.
+      4. Asse:
+         Transfira para uma assadeira, cubra com farinha de rosca e asse até dourar.
 
-      5. Serve:
-         Serve hot, garnished with parsley if desired.
+      5. Sirva:
+         Sirva quente, decorado com salsinha se desejar.
     `,
     creator: 'Laura Smith',
     creator_email: 'laurasmith@example.com',
   },
   {
-    title: 'Authentic Pizza',
-    slug: 'authentic-pizza',
+    title: 'Pizza Autêntica',
+    slug: 'pizza-autentica',
     image: '/images/pizza.jpg',
     summary:
-      'Hand-tossed pizza with a tangy tomato sauce, fresh toppings, and melted cheese.',
+      'Pizza feita à mão com molho de tomate picante, coberturas frescas e queijo derretido.',
     instructions: `
-      1. Prepare the dough:
-         Knead pizza dough and let it rise until doubled in size.
+      1. Prepare a massa:
+         Sove a massa de pizza e deixe crescer até dobrar de tamanho.
 
-      2. Shape and add toppings:
-         Roll out the dough, spread tomato sauce, and add your favorite toppings and cheese.
+      2. Modele e adicione coberturas:
+         Abra a massa, espalhe o molho de tomate e adicione suas coberturas favoritas e queijo.
 
-      3. Bake the pizza:
-         Bake in a preheated oven at 220°C for about 15-20 minutes.
+      3. Asse a pizza:
+         Asse em forno pré-aquecido a 220°C por cerca de 15-20 minutos.
 
-      4. Serve:
-         Slice hot and enjoy with a sprinkle of basil leaves.
+      4. Sirva:
+         Corte quente e aproveite com um toque de folhas de manjericão.
     `,
     creator: 'Mario Rossi',
     creator_email: 'mariorossi@example.com',
@@ -124,41 +127,41 @@ const dummyMeals = [
     slug: 'wiener-schnitzel',
     image: '/images/schnitzel.jpg',
     summary:
-      'Crispy, golden-brown breaded veal cutlet, a classic Austrian dish.',
+      'Costeleta de vitela empanada crocante e dourada, um prato clássico austríaco.',
     instructions: `
-      1. Prepare the veal:
-         Pound veal cutlets to an even thickness.
+      1. Prepare a vitela:
+         Bata as costeletas de vitela até ficarem com uma espessura uniforme.
 
-      2. Bread the veal:
-         Coat each cutlet in flour, dip in beaten eggs, and then in breadcrumbs.
+      2. Empane a vitela:
+         Passe cada costeleta na farinha, mergulhe nos ovos batidos e depois na farinha de rosca.
 
-      3. Fry the schnitzel:
-      Heat oil in a pan and fry each schnitzel until golden brown on both sides.
+      3. Frite o schnitzel:
+         Aqueça o óleo em uma frigideira e frite cada schnitzel até dourar dos dois lados.
 
-      4. Serve:
-      Serve hot with a slice of lemon and a side of potato salad or greens.
- `,
+      4. Sirva:
+         Sirva quente com uma fatia de limão e uma salada de batata ou verduras.
+    `,
     creator: 'Franz Huber',
     creator_email: 'franzhuber@example.com',
   },
   {
-    title: 'Fresh Tomato Salad',
-    slug: 'fresh-tomato-salad',
+    title: 'Salada de Tomate Fresca',
+    slug: 'salada-de-tomate-fresca',
     image: '/images/tomato-salad.jpg',
     summary:
-      'A light and refreshing salad with ripe tomatoes, fresh basil, and a tangy vinaigrette.',
+      'Uma salada leve e refrescante com tomates maduros, manjericão fresco e um vinagrete picante.',
     instructions: `
-      1. Prepare the tomatoes:
-        Slice fresh tomatoes and arrange them on a plate.
-    
-      2. Add herbs and seasoning:
-         Sprinkle chopped basil, salt, and pepper over the tomatoes.
-    
-      3. Dress the salad:
-         Drizzle with olive oil and balsamic vinegar.
-    
-      4. Serve:
-         Enjoy this simple, flavorful salad as a side dish or light meal.
+      1. Prepare os tomates:
+         Fatie tomates frescos e organize-os em um prato.
+      
+      2. Adicione ervas e temperos:
+         Salpique manjericão picado, sal e pimenta sobre os tomates.
+      
+      3. Tempere a salada:
+         Regue com azeite de oliva e vinagre balsâmico.
+      
+      4. Sirva:
+         Aproveite esta salada simples e saborosa como acompanhamento ou refeição leve.
     `,
     creator: 'Sophia Green',
     creator_email: 'sophiagreen@example.com',
@@ -166,7 +169,7 @@ const dummyMeals = [
 ];
 
 async function main() {
-  console.log('Start seeding ...');
+  console.log('Iniciando o seed...');
 
   for (const meal of dummyMeals) {
     const createdMeal = await prisma.meal.upsert({
@@ -174,10 +177,10 @@ async function main() {
       update: {},
       create: meal,
     });
-    console.log(`Created meal with id: ${createdMeal.id}`);
+    console.log(`Refeição criada com id: ${createdMeal.id}`);
   }
 
-  console.log('Seeding finished.');
+  console.log('Seed finalizado.');
 }
 
 main()

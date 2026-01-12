@@ -41,6 +41,7 @@ export default function ImageSlideshow() {
           key={index}
           src={image.image}
           alt={image.alt}
+          fill
           className={`
             w-full h-full object-cover absolute top-0 left-0 transition-all duration-500 ease-in-out
             ${index === currentImageIndex

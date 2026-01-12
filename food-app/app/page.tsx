@@ -4,10 +4,10 @@ import ImageSlideshow from '@/components/Images/ImageSlideshow';
 export default function Home() {
   return (
     <>
-      <header className="flex gap-12 my-12 mx-auto w-[90%] max-w-[75rem] items-center justify-between">
+      <header className="flex flex-col md:flex-row gap-12 my-12 mx-auto w-[90%] max-w-[75rem] items-center justify-between">
 
         {/* Slideshow Container */}
-        <div className="w-[40rem] h-[25rem] rounded-lg overflow-hidden shadow-lg border-2 border-[#ddd6cb]/20 bg-gray-800">
+        <div className="w-full max-w-[40rem] h-[25rem] rounded-lg overflow-hidden shadow-lg border-2 border-[#ddd6cb]/20 bg-gray-800">
           <ImageSlideshow />
         </div>
 

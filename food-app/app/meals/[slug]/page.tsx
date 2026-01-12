@@ -20,7 +20,7 @@ export default async function SpecificMealPage({ params }: SpecificMealPageProps
 
   return (
     <>
-      <header className="flex px-8 py-12 gap-12 m-auto max-w-[80rem] items-center">
+      <header className="flex flex-col px-8 py-12 gap-12 m-auto max-w-[80rem] items-center md:flex-row">
         <div className="relative w-[30rem] h-[20rem]">
           <Image
             src={meal.image}
